@@ -2,5 +2,8 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
+from profiles_api.models import UserProfile
 
-# Register your models here.
+
+# admin.site.register(UserProfileManager)
+admin.site.register(UserProfile)
