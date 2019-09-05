@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.shortcuts import render
+from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -39,5 +38,18 @@ class HelloApiView(APIView):
     def patch(self, request, pk=None):
         return Response({'method':'patch'})
 
+
+
     def delete(self, request, pk=None):
         return Response({'method': 'delete'})
+
+
+
+class HelloViewSet(viewsets.ViewSet):
+    def list(self, request):
+        a_viewset = [
+        'Uses action',
+        'Automatically',
+        'provides'
+        ]
+        return Response({'a_viewset':a_viewset, 'message':'Hello!'})
