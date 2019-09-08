@@ -4,8 +4,10 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.authentication import TokenAuthentication
 from . import serializers
 from . import models
+from . import permissions
 
 
 class HelloApiView(APIView):
@@ -14,7 +16,7 @@ class HelloApiView(APIView):
     def get(self, request, format=None):
         an_apiview = [
         'Uses HTTP method',
-        'It is similar',
+        'It is similar',  
         'Gives you',
         'Is mapped'
         ]
@@ -83,4 +85,5 @@ class HelloViewSet(viewsets.ViewSet):
 class UserProfileViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.UserProfileSerializer
     queryset = models.UserProfile.objects.all()
-    
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.UpdateOwnProfile,)
