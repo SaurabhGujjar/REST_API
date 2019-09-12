@@ -1,0 +1,7 @@
+ssh ubuntu@ec2-54-196-222-5.compute-1.amazonaws.com
+then to download from github
+sudo apt-get install wget
+to make this downloaded file executable
+chmod +x server_setup.sh
+now finally to run this file on server (to download all requirements of our project and to load all the settings)
+sudo ./server_setup.sh
